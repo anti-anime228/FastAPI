@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+
+
+</head>
+<body>
+    <header>
+        <nav>
+
+                <a href="/protected" ><h4>Узнать случайный секрет</h4></a>
+
+                <a href="/secret" ><h4>Поделиться секретом</h4></a>
+
+                <a href="/registration" ><h4>Регистрация</h4></a>
+
+                <a href="/login"><h4>Войти</h4></a>
+
+                <a href="/logout"><h4>Выйти</h4></a>
+
+        </nav>
+    </header>
+    {% if error_message %}
+        <div style="color: red;"><h4>{{ error_message }}</h4></div>
+    {% endif %}
+
+    {% block content %}
+    {% endblock %}
+
+    <footer>
+        {% block footer %}<br>
+
+        <a href="/" ><h4>На главную</h4></a>
+        {% endblock %}
+    </footer>
+</body>
+</html>

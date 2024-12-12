@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Войти</title>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <h2>Форма входа</h2>
+    {% if error_message %}
+        <div style="color: red;">{{ error_message }}</div>
+    {% endif %}
+    <form action="/login" method="post">
+        <p>
+            Username:<br>
+            <input name="username" />
+        </p>
+        <p>
+            Password:<br>
+            <input name="password" type="password" />
+        </p>
+        <input type="submit" value="Войти" />
+        <br>
+        <br>
+        <a href="/registration">Зарегистрироваться</a>
+        <br>
+        <br>
+        <a href="/" >На главную</a>
+    </form>
+</body>
+</html>

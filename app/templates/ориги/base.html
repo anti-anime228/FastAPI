@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <title>
+        {% block title %}
+
+        {% endblock %}
+    </title>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="{{ url_for('main.protected') }}"><h4>Прочитать секрет</h4></a>
+            <a href="{{ url_for('main.secret') }}"><h4>Поделиться секретом</h4></a>
+            <a href="{{ url_for('main.registration') }}"><h4>Регистрация</h4></a>
+            <a href="{{ url_for('main.login') }}"><h4>Войти</h4></a>
+            <a href="{{ url_for('main.logout') }}"><h4>Выйти</h4></a>
+        </nav>
+    </header>
+    <div class="container">
+        {% block errors %}
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for message in messages %}
+        <div style="color: red;"><h3>{{ message }}</h3></div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+
+<br>
+<br>
+
+        {% endblock %}
+
+
+        {% block content %}
+
+        {% endblock %}
+    </div>
+
+</body>
+<footer>
+        {% block footer %}<br>
+<br>
+        <a href="/" ><h4>На главную</h4></a>
+        {% endblock %}
+    </footer>
+</html>

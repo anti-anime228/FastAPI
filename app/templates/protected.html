@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Случайный секрет</title>
+</head>
+<body>
+    <h1>Прочитать случайный секрет</h1>
+
+    <button id="get-secret">Прочитать случайный секрет</button><br>
+        <br>
+        <br>
+        <br>
+    <h2><div id="secret-content"></div></h2>
+
+    <script>
+        document.getElementById('get-secret').addEventListener('click', function() {
+            fetch('/get-random-secret')
+                .then(response => response.json())
+                .then(data => {
+                    const secretContent = data.content;
+                    document.getElementById('secret-content').innerText = secretContent;
+                })
+                .catch(error => console.error('Ошибка:', error));
+        });
+    </script>
+        <br>
+        <br>
+        <a href="/" >На главную</a>
+</body>
+</html>

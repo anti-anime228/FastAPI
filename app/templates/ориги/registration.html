@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    {% if error_message %}
+        <div style="color: red;">{{ error_message }}</div>
+    {% endif %}
+
+    <h2>Форма регистрации</h2>
+    <form action="registration" method="post">
+        <p>
+            Имя пользователя:<br>
+            <input name="username" />
+        </p>
+        <p>
+            Почта:<br>
+            <input name="email" type="email" />
+        </p>
+        <p>
+            Пароль:<br>
+            <input name="password" type="password" />
+        </p>
+        <p>
+            Повторите пароль:<br>
+            <input name="repeat_password" type="password" />
+        </p>
+        <p>
+            Возвраст:<br>
+            <input name="age" type="number" />
+        </p>
+        <input type="submit" value="Зарегистрироваться" />
+        <br>
+        <br>
+        <br>
+        <a href="/" >На главную</a>
+    </form>
+</body>
+</html>
